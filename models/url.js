@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const urlSchema = new mongoose.Schema({
-    id: String,
+    urlCode: String,
     longUrl: String,
     shortUrl: String,
     date: {

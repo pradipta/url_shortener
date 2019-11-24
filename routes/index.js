@@ -11,7 +11,8 @@ router.get('/:code', async(req, res)=>{
     try {
         const code = req.params.code;
         const url = await Url.findOne({urlCode: code});
-        console.log('Code: ', code);
+        //console.log('Code: ', code);
+        console.log(url);
         if(url){
             res.redirect(url.longUrl);
         }else{

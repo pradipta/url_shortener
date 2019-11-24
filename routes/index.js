@@ -1,6 +1,7 @@
 const express = require ('express');
 const router = express.Router();
-
+const config = require ('config');
+//const baseUrl = require ()
 const Url = require('../models/url');
 
 
@@ -10,8 +11,11 @@ const Url = require('../models/url');
 router.get('/:code', async(req, res)=>{
     try {
         const code = req.params.code;
-        const url = await Url.findOne({urlCode: code});
+        const baseUrl = config.get('baseUrl');
+        const shortUrlToFind = baseUrl +'/'+ code
+        const url = await Url.findOne({shortUrl: shortUrlToFind});
         console.log('Code: ', code);
+        console.log('url: ', url);
         if(url){
             res.redirect(url.longUrl);
         }else{

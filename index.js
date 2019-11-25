@@ -1,9 +1,13 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 const app = express();
 
 connectDB();
+
+//cors
+app.use(cors());
 
 app.use(express.json({ extended : false}));
 
@@ -12,6 +16,6 @@ app.use(express.json({ extended : false}));
 app.use('/', require('./routes/index'));
 app.use('/api/url', require('./routes/url'));
 
-const PORT = 5000;
+const PORT = 3000;
 
-app.listen(PORT,'192.168.1.3', () => console.log(`App running on port ${PORT}`));
+app.listen(PORT, () => console.log(`App running on port ${PORT}`));

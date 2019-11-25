@@ -1,6 +1,9 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const cors = require('cors');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 
@@ -16,6 +19,12 @@ app.use(express.json({ extended : false}));
 app.use('/', require('./routes/index'));
 app.use('/api/url', require('./routes/url'));
 
-const PORT = 3000;
+//const PORT = 3000;
 
-app.listen(PORT, () => console.log(`App running on port ${PORT}`));
+const PORT =  process.env.PORT;
+
+if (PORT!=undefined){
+    app.listen(PORT, () => console.log(`App running on port ${PORT}`));
+}else{
+    console.log('PORT not found on env');
+}

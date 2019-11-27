@@ -6,4 +6,8 @@
 # @pradiptasarma, @ahmednasir will be requested for
 # review when someone opens a pull request.
 
-*   @pradiptasarma, @ahmednasir
+*   @pradiptasarma @ahmednasir
+
+config/         @pradiptasarma @ahmednasir
+models/         @pradiptasarma
+routes/         @pradiptasarma

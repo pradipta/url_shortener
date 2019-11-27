@@ -2,7 +2,7 @@ const express = require ('express');
 const router = express.Router();
 
 //@route        GET /
-//description   route to actual url
+//description   Welcome page
 
 router.get('/', function(req, res){
     //sends response to client or browser
